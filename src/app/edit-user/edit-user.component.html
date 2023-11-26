@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>User módosítás</h1>
+
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Név</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="onCancel()">Mégsem</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Mentés</button>
+</div>

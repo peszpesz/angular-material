@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>
+    User törlése
+    <span>
+        <button mat-mini-fab color="warn"><mat-icon>warning</mat-icon></button>
+    </span>
+</h1>
+
+<div mat-dialog-content>
+    <p>Biztos törlöd <em>{{ data.name }}</em> nevű usert?</p>
+</div>
+
+<div mat-dialog-actions>
+  <button
+    mat-flat-button
+    (click)="onCancel()">
+        Mégsem
+    </button>
+  <button
+    mat-flat-button
+    color="primary"
+    [mat-dialog-close]="data.id"
+    cdkFocusInitial>
+        Igen, törlöm
+    </button>
+</div>

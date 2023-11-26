@@ -1,0 +1,13 @@
+<h1>Hei!</h1>
+<p>Welcome to my first Angular Material project.</p>
+<p>I hope you enjoy surfing around.</p>
+
+<mat-form-field>
+    <mat-label>What's your name?</mat-label>
+    <input matInput [(ngModel)]="name">
+</mat-form-field>
+<p>You can even tell me more about yourself by clicking this button:</p>
+<button mat-flat-button color="accent" (click)="openDialog()">Állat</button>
+<p *ngIf="animal">
+    Great! I love {{ animal }}s too.
+</p>

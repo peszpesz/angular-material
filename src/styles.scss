@@ -1,0 +1,55 @@
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 10px 20px;
+}
+
+.mdc-button {
+  font-weight: bold;
+  margin-right: 15px;
+  text-transform: uppercase;
+}
+
+.example-button-row {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.mat-mdc-chip {
+  font-size: 14px;
+}
+
+.mat-mdc-tab-body {
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+//table
+.mat-mdc-tooltip {
+  font-size: 12px;
+}
+
+.add-user {
+  margin: 10px;
+}
+
+// dialog
+.mat-dialog-title {
+  width: 100%;
+}
+
+.mat-dialog-title span {
+  float: right;
+  text-align: right;
+}
+
+// form
+.mat-mdc-form-field {
+  margin-right: 20px;
+}
