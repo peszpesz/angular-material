@@ -86,7 +86,6 @@ export class TableComponent implements AfterViewInit, OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         let user = result;
-        console.log(user.name, 'has been added');
         let ids = this.dataSource.data
           .map(e => e.id)
           .sort((a, b) => a - b);

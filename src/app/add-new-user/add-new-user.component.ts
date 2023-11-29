@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UserData } from '../interface/user';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-new-user',
@@ -9,16 +9,25 @@ import { UserData } from '../interface/user';
 })
 export class AddNewUserComponent {
   constructor(
-    public dialogRef: MatDialogRef<AddNewUserComponent>
-  ) { }
-
-  newUser: UserData = {
-    id: 0,
-    name: '',
-    email: ''
+    public dialogRef: MatDialogRef<AddNewUserComponent>,
+    private fb: FormBuilder
+  ) {
+    this.form = fb.group({
+      name: ['', [Validators.required]],
+      email: ['', [
+        Validators.required,
+        Validators.pattern(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+      ]]
+    });
   }
+
+  form: FormGroup;
 
   onCancel(): void {
     this.dialogRef.close();
+  }
+
+  onSubmit(): void {
+    this.dialogRef.close(this.form.value);
   }
 }

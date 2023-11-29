@@ -1,23 +1,37 @@
 <h1 mat-dialog-title>User hozzáadás</h1>
-
 <div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Név</mat-label>
-    <input
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Név</mat-label>
+      <input
         matInput
-        required
-        [(ngModel)]="newUser.name">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Email cím</mat-label>
-    <input
+        formControlName="name"
+        id="name">
+      <mat-hint
+        *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']"
+        class="alert">
+          Szükséges mező
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email cím</mat-label>
+      <input
         matInput
-        required
-        [(ngModel)]="newUser.email">
-  </mat-form-field>
-
+        formControlName="email"
+        id="email">
+      <mat-hint
+        *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']"
+        class="alert">
+          Szükséges mező
+      </mat-hint>
+      <mat-hint
+        *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['pattern']"
+        class="alert">
+          Nem megfelelő formátum
+      </mat-hint>
+    </mat-form-field>
+  </form>
 </div>
-
 <div mat-dialog-actions>
     <button
         mat-flat-button
@@ -27,8 +41,9 @@
     <button
         mat-flat-button
         color="primary"
-        [mat-dialog-close]="newUser"
-        cdkFocusInitial>
+        (click)="onSubmit()"
+        cdkFocusInitial
+        [disabled]="form.invalid">
             Mentés
     </button>
 </div>

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './dialog/dialog.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatComponentsModule } from './mat-components.module';
 import { MiscComponent } from './misc/misc.component';
 import { RouterModule } from '@angular/router';
@@ -33,6 +33,7 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatComponentsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
