@@ -81,6 +81,21 @@
 <mat-icon>add_alert</mat-icon>
 
 <h4>Button</h4>
+<section>
+    <div class="example-button-row">
+      <a routerLink="/">
+        <button mat-flat-button color="primary">Home</button>
+      </a>
+      <a routerLink="/misc">
+        <button mat-flat-button color="primary">Misc</button>
+      </a>
+      <a routerLink="/table">
+        <button mat-flat-button color="primary">Table</button>
+      </a>
+      <button mat-flat-button color="warn" (click)="onNothing()">Nothing</button>
+    </div>
+  </section>
+
 <button mat-raised-button matToolTip="Paripa lenne, ha akítv lenne">Kakika</button>
 <button mat-stroked-button color="primary" matToolTip="matToolTip">Csacsiba</button>
 <button mat-flat-button color="primary" matToolTip="Paripa lenne, ha akítv lenne">Paripa</button>

@@ -41,5 +41,10 @@ export class MiscComponent {
       }
     }, 50);
   }
+
+  onNothing() {
+    alert('Mondom, hogy Nothing!');
+  }
+
 }
 

@@ -1,0 +1,18 @@
+<div class="sidenav">
+    <div class="logo-container">
+        App Logo <mat-icon class="logo" color="accent">bolt</mat-icon>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.link]" 
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <mat-icon class="sidenav-link-icon">{{ data.icon }}</mat-icon>
+                <span class="sidenav-link-text">
+                    {{ data.label }}
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>

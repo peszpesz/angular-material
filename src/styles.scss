@@ -6,7 +6,6 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  padding: 10px 20px;
 }
 
 .mdc-button {
@@ -17,7 +16,6 @@ body {
 
 .example-button-row {
   width: 100%;
-  text-align: right;
   margin-bottom: 30px;
 }
 
@@ -57,4 +55,21 @@ body {
 .alert {
   color: #E53935;
   font-size: 12px;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.mat-sidenav {
+  padding: 10px 20px;
+}
+
+.mat-sidenav-content {
+  padding: 10px 30px;
 }

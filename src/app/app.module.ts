@@ -16,6 +16,7 @@ import { TableDataSource } from './table/table-datasource';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
     TableComponent,
     EditUserComponent,
     DeleteUserComponent,
-    AddNewUserComponent
+    AddNewUserComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
