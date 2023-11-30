@@ -1,9 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MasterService } from '../master.service';
-import { TableDataSource, TableItem } from './table-datasource';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { UserData } from '../interface/user';
@@ -15,29 +13,29 @@ import { AddNewUserComponent } from '../add-new-user/add-new-user.component';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements AfterViewInit, OnInit {
+export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<TableItem>;
 
-  dataSource = new TableDataSource(this.service);
+  pelda: UserData[] = [
+    { id: 1, name: 'Pisti', email: 'pisti@gmail.com' },
+    { id: 2, name: 'Zoli', email: 'z@gmail.com' },
+    { id: 3, name: 'Krisztián', email: 'kriz@gmail.com' },
+    { id: 44, name: 'Krisztina', email: 'kriszti@gmail.com' },
+    { id: 32, name: 'Antal', email: 'anti@gmail.com' },
+    { id: 7, name: 'Géza', email: 'geza@gmail.com' }
+  ];
 
-  constructor(
-    private service: MasterService,
-    public dialog: MatDialog
-    ) {}
+  dataSource!: MatTableDataSource<UserData>;
+
+  constructor(public dialog: MatDialog) { }
     
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'email', 'edit'];
 
-  ngOnInit(): void {
-    this.dataSource.loadData();
-  }
-
   ngAfterViewInit(): void {
+    this.dataSource = new MatTableDataSource(this.pelda);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
   }
 
   editUser(user: UserData): void {
@@ -99,5 +97,10 @@ export class TableComponent implements AfterViewInit, OnInit {
           ._changePageSize(this.paginator.pageSize); // refresh
       }
     });
+  }
+
+  filterData(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

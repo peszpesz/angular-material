@@ -21,14 +21,15 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
-    ).subscribe(() =>{
-      let rt = this.getChild(this.activatedRoute)
+      )
+      .subscribe(() => {
+        let rt = this.getChild(this.activatedRoute)
 
-      rt.data.subscribe(data => {
-        this.title = data['title'];
-        this.titleService.setTitle(data['title']);
+        rt.data.subscribe(data => {
+          this.title = data['title'];
+          this.titleService.setTitle(data['title']);
+        })
       })
-    })
   }
 
   getChild(activatedRoute: ActivatedRoute): ActivatedRoute {
@@ -38,6 +39,4 @@ export class AppComponent implements OnInit {
       return activatedRoute;
     }
   }
-
-
 }

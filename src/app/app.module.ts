@@ -11,8 +11,6 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TableComponent } from './table/table.component';
-import { MasterService } from './master.service';
-import { TableDataSource } from './table/table-datasource';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
@@ -60,10 +58,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
       }
     ])
   ],
-  providers: [
-    MasterService,
-    TableDataSource
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
