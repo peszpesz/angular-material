@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,6 +16,7 @@ import { AddNewUserComponent } from '../add-new-user/add-new-user.component';
 export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatTable) table!: MatTable<UserData>;
 
   pelda: UserData[] = [
     { id: 1, name: 'Pisti', email: 'pisti@gmail.com' },
@@ -36,6 +37,7 @@ export class TableComponent implements AfterViewInit {
     this.dataSource = new MatTableDataSource(this.pelda);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    console.log('betöltés');
   }
 
   editUser(user: UserData): void {
@@ -71,8 +73,8 @@ export class TableComponent implements AfterViewInit {
         let id = this.dataSource.data
           .findIndex(e => e.id == user.id);
         this.dataSource.data.splice(id, 1);
-        this.paginator
-          ._changePageSize(this.paginator.pageSize); // refresh
+        console.log(this.dataSource.data);
+        this.dataSource.data = this.dataSource.data; // refresh
       }
     });
   }
@@ -93,8 +95,7 @@ export class TableComponent implements AfterViewInit {
           name: user.name,
           email: user.email
         });
-        this.paginator
-          ._changePageSize(this.paginator.pageSize); // refresh
+        this.dataSource.data = this.dataSource.data; // refresh
       }
     });
   }
