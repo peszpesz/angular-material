@@ -38,10 +38,26 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     ReactiveFormsModule,
     MatComponentsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'misc', component: MiscComponent },
-      { path: 'table', component: TableComponent },
-      { path: '**', component: NotFoundComponent }
+      {
+        path: '',
+        component: HomeComponent,
+        data: { title: 'Home' }
+      },
+      {
+        path: 'misc',
+        component: MiscComponent,
+        data : { title: 'Misc' }
+      },
+      {
+        path: 'table',
+        component: TableComponent,
+        data: { title: 'Users' }
+      },
+      {
+        path: '**',
+        component: NotFoundComponent,
+        data : { title: 'Not found' }
+      }
     ])
   ],
   providers: [

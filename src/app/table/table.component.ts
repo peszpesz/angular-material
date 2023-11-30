@@ -32,7 +32,6 @@ export class TableComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.dataSource.loadData();
-    console.log('init');
   }
 
   ngAfterViewInit(): void {
