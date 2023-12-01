@@ -6,6 +6,8 @@
 .logo-container {
     height: 3rem;
     font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .logo {
@@ -14,7 +16,7 @@
 
 .sidenav-nav {
     list-style: none;
-    padding: 0.938rem;
+    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -22,32 +24,33 @@
 
     .sidenav-nav-item {
         width: 100%;
-        margin-bottom: 0.625rem;
         cursor: pointer;
 
         .sidenav-nav-link {
             display: flex;
             align-items: center;
-            height: 3rem;
+            height: 2.8rem;
             color: #333;
             text-decoration: none;
 
             .sidenav-link-icon {
                 font-size: 22px;
-                width: 2.5rem;
+                width: 2rem;
                 min-width: 2rem;
-                text-align: center;
+                text-align: left;
             }
 
             .sidenav-link-text {
-                margin-left: .4rem;
+                margin-left: 0;
             }
         }
     }
 
     .sidenav-nav-item:hover {
-        .sidenav-nav-link {
-            background-color: #fff;
+        .sidenav-link-icon {
+            color: #FFAB00;
+        }
+        .sidenav-link-text {
             color: #000;
         }
     }
@@ -55,8 +58,9 @@
 
 .active {
     font-weight: bold;
-
-    .sidenav-link-icon,
+    .sidenav-link-icon {
+        color: #FFAB00;
+    }
     .sidenav-link-text {
         color: #000;
     }
