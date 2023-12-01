@@ -10,6 +10,11 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class HomeComponent {
   animal!: string;
   name!: string;
+  isClicked: boolean = false;
+  rizsa: string[] = [
+    'Welcome to my first Angular Material project.',
+    'I hope you enjoy surfing around.'
+  ];
 
   constructor(public dialog: MatDialog) { }
 
@@ -24,5 +29,9 @@ export class HomeComponent {
     dialogRef.afterClosed().subscribe(result => {
       this.animal = result;
     });
+  }
+
+  onClickme() {
+    this.isClicked = !this.isClicked;
   }
 }

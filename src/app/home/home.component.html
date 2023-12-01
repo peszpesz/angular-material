@@ -1,13 +1,45 @@
 <h1>Hei!</h1>
-<p>Welcome to my first Angular Material project.</p>
-<p>I hope you enjoy surfing around.</p>
 
-<mat-form-field>
-    <mat-label>What's your name?</mat-label>
-    <input matInput [(ngModel)]="name">
-</mat-form-field>
-<p>You can even tell me more about yourself by clicking this button:</p>
-<button mat-flat-button color="accent" (click)="openDialog()">Állat</button>
-<p *ngIf="animal">
-    Great! I love {{ animal }}s too.
-</p>
+<section>
+    <button mat-flat-button color="primary" (click)="onClickme()">
+        Click me
+    </button>
+</section>
+
+<mat-card
+    *ngFor="let sor of rizsa"
+    class="small">
+    <mat-card-content>
+        {{ sor }}
+    </mat-card-content>
+</mat-card>
+
+<mat-card
+    *ngIf="isClicked"
+    class="small">
+    <mat-card-content>
+        Thank you {{ name }}
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>What's your name?</mat-label>
+            <input matInput [(ngModel)]="name">
+        </mat-form-field>
+        <p>You can even tell me more about yourself by clicking this button:</p>
+        <button mat-flat-button color="accent" (click)="openDialog()">Állat</button>
+    </mat-card-content>
+</mat-card>
+
+<mat-card
+    *ngIf="animal"
+    class="small">
+    <mat-card-content>
+        Great!
+    </mat-card-content>
+    <mat-card-content>
+        I love {{ animal }}s, too.
+    </mat-card-content>
+</mat-card>

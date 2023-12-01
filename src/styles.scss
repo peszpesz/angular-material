@@ -91,3 +91,15 @@ body {
 .mat-toolbar {
   border-bottom: 1px solid #ddd;
 }
+
+.mat-mdc-card {
+  margin: 25px 25px 0 0;
+  padding: 5px;
+  min-height: 150px;
+  line-height: 1.3em;
+  float: left;
+}
+
+.mat-mdc-card.small {
+  width: 150px;
+}
