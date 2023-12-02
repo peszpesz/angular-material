@@ -4,6 +4,10 @@
     <button mat-flat-button color="primary" (click)="onClickme()">
         Click me
     </button>
+    or
+    <mat-slide-toggle color="primary" [checked]="isClicked" (change)="isClicked = !isClicked">
+        Turn me
+    </mat-slide-toggle>
 </section>
 
 <mat-card
@@ -17,8 +21,11 @@
 <mat-card
     *ngIf="isClicked"
     class="small">
-    <mat-card-content>
+    <mat-card-header class="pesz">
         Thank you {{ name }}
+    </mat-card-header>
+    <mat-card-content>
+        What a beautiful day
     </mat-card-content>
 </mat-card>
 
