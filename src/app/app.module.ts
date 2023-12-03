@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeHu from '@angular/common/locales/hu';
+registerLocaleData(localeHu);
 
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './dialog/dialog.component';
@@ -58,7 +61,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
       }
     ])
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'hu-HU' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

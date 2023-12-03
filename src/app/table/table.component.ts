@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -7,14 +7,15 @@ import { EditUserComponent } from '../edit-user/edit-user.component';
 import { UserData } from '../interface/user';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
 import { AddNewUserComponent } from '../add-new-user/add-new-user.component';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+export class TableComponent implements AfterViewInit, OnInit {
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<UserData>;
 
@@ -32,6 +33,19 @@ export class TableComponent implements AfterViewInit {
   constructor(public dialog: MatDialog) { }
     
   displayedColumns = ['id', 'name', 'email', 'edit'];
+
+  decimalPipe = new DecimalPipe(navigator.language);
+
+  ngOnInit() {
+    this.paginator._intl.itemsPerPageLabel = 'oldalanként';
+    this.paginator._intl.nextPageLabel = 'következő oldal';
+    this.paginator._intl.previousPageLabel = 'előző oldal';
+    this.paginator._intl.getRangeLabel = (page: number, pageSize: number, length: number) => {
+      const start = page * pageSize + 1;
+      const end = ((page + 1) * pageSize > length) ? length : (page + 1) * pageSize;
+      return `${start} - ${end} / ${this.decimalPipe.transform(length)}`;
+    };
+  }
 
   ngAfterViewInit(): void {
     this.dataSource = new MatTableDataSource(this.pelda);
