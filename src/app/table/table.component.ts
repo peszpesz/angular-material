@@ -56,6 +56,7 @@ export class TableComponent implements AfterViewInit {
           .findIndex(e => e.id == user.id);
         this.dataSource.data[id].name = user.name;
         this.dataSource.data[id].email = user.email;
+        this.dataSource.data = this.dataSource.data; // refresh
       }
     });
   }
@@ -73,7 +74,6 @@ export class TableComponent implements AfterViewInit {
         let id = this.dataSource.data
           .findIndex(e => e.id == user.id);
         this.dataSource.data.splice(id, 1);
-        console.log(this.dataSource.data);
         this.dataSource.data = this.dataSource.data; // refresh
       }
     });

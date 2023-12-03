@@ -67,7 +67,7 @@ body {
 }
 
 .mat-sidenav {
-  padding: 10px 20px;
+  padding: 0 20px;
 }
 
 .mat-sidenav-content {
@@ -78,6 +78,14 @@ body {
   font-weight: bold;
   font-size: 18px;
   margin: auto;
+}
+
+.date {
+  margin-top: 40px;
+  font-size: 12px;
+  line-height: 1.4em;
+  text-align: center;
+  color: #777;
 }
 
 .add-user {

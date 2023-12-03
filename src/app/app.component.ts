@@ -17,6 +17,16 @@ export class AppComponent implements OnInit {
   }
 
   title!: string;
+  date = new Date();
+  napok = [
+    'vasárnap',
+    'hétfő',
+    'kedd',
+    'szerda',
+    'csütörtök',
+    'péntek',
+    'szombat'
+  ];
 
   ngOnInit(): void {
     this.router.events.pipe(
@@ -30,6 +40,7 @@ export class AppComponent implements OnInit {
           this.titleService.setTitle(data['title']);
         })
       })
+      console.log(this.date);
   }
 
   getChild(activatedRoute: ActivatedRoute): ActivatedRoute {
