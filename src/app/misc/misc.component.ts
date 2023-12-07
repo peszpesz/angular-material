@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-misc',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./misc.component.scss']
 })
 export class MiscComponent {
+  constructor(private snackBar: MatSnackBar) {}
+  
   isChecked: boolean = true;
   colors = [
     { id: 1, name: 'piros', col: 'red' },
@@ -43,8 +46,18 @@ export class MiscComponent {
   }
 
   onNothing() {
-    alert('Mondom, hogy Nothing!');
+    this.openSnackBar('Mondom, hogy Nothing!', 'Értem már');
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    });
+  }
+
+  onRadioChange($event: any) {
+    this.openSnackBar($event.value ==1 ? 'Paff' : 'Piff', 'OK');
+  }
 }
 

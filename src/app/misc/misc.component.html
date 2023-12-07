@@ -11,7 +11,9 @@
  
 <h4>Radio buttons</h4>
 
-    <mat-radio-group value="">
+    <mat-radio-group
+        value=""
+        (change)="onRadioChange($event)">
         <mat-radio-button value="0">Piff</mat-radio-button>
         <mat-radio-button value="1">Paff</mat-radio-button>
     </mat-radio-group>
