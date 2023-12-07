@@ -40,18 +40,19 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.paginator._intl.itemsPerPageLabel = 'oldalanként';
     this.paginator._intl.nextPageLabel = 'következő oldal';
     this.paginator._intl.previousPageLabel = 'előző oldal';
+    this.paginator._intl.firstPageLabel = 'első oldal';
+    this.paginator._intl.lastPageLabel = 'utolsó oldal';
     this.paginator._intl.getRangeLabel = (page: number, pageSize: number, length: number) => {
       const start = page * pageSize + 1;
       const end = ((page + 1) * pageSize > length) ? length : (page + 1) * pageSize;
       return `${start} - ${end} / ${this.decimalPipe.transform(length)}`;
     };
+    this.dataSource = new MatTableDataSource(this.pelda);
   }
 
   ngAfterViewInit(): void {
-    this.dataSource = new MatTableDataSource(this.pelda);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    console.log('betöltés');
   }
 
   editUser(user: UserData): void {
